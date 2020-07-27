@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Getting Started</title>
+  </head>
+  <body>
+    <div class="page-header">
+        <h1>Handlehjelperen <small>For deg som ikke fungerer mentalt på butikken</small></h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <button>Alle oppskrifter</button>
+        <button>Tilfeldig oppskrift</button>
+        <button>Slett oppskrift</button>
+      </div>
+      <div class="row">
+        <div class="col list-group" id="recipe-list">
+        </div>
+        <div id="recipe-panel" class="col card">
+          <div id="recipe-panel-body" class="card-body">
+            <h3 id="recipe-panel-title" class="card-title">Klikk på en oppskrift</h3>
+            <p id="body-category" class="card-text">Detaljene vil vises her</p>
+            <p id="body-ingredients" class="card-text"></p>
+            <p id="body-source" class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
