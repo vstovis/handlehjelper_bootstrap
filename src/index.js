@@ -5,6 +5,21 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
+const categories = {
+    fish: {
+        icon: "fa-fish",
+        nameNo: "fisk"
+    },
+    meat: {
+        icon: "fa-drumstick-bite",
+        nameNo: "kjøtt"
+    },
+    vegetarian: {
+        icon: "fa-carrot",
+        nameNo: "vegetar"
+    },
+}
+
 // TODO: finn en sikrere løsning for autentisering
 const firebaseConfig = {
     apiKey: "AIzaSyB1yIBlddLGUEuJL8zC6SO_76caW1QvAGk",
@@ -21,6 +36,8 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    
     const recipeList = document.getElementById("recipe-list");
     const title = document.getElementById("recipe-panel-title");
     const category = document.getElementById("body-category");
@@ -28,24 +45,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const source = document.getElementById("body-source");
     
     const recipePopulator = (recipes) => {
+        while (recipeList.hasChildNodes()) {
+            recipeList.removeChild(recipeList.firstChild);
+        }
         recipes.forEach((recipesnapshot) => {
             const recipe = recipesnapshot.data();
             const onRecipeClick = () => {
                 title.innerText = recipe.name
-                category.innerText = `Kategori: ${recipe.category}`
+                const categoryType = categories[recipe.category]
+                if (categoryType) {
+                    category.innerText = `Kategori: ${categoryType.nameNo}`
+                } else {
+                    category.innerText = `Fiks denne: ${recipe.category}, ${recipesnapshot.id}`
+                }
                 ingredients.innerText = `Ingredienser: ${recipe.ingredients}`
-                source.innerText = `Kilde: ${recipe.source}`
-                console.log(recipe)
-                
+                source.innerText = `Kilde: ${recipe.source}`                
             }
 
             const aElem = document.createElement("a");
-            aElem.innerHTML = recipe.name;
-            aElem.classList.add("list-group-item", "list-group-item-action")
-            aElem.onclick = onRecipeClick
+            // aElem.innerHTML = recipe.name;
+            aElem.classList.add("list-group-item", "list-group-item-action", "row");
+            aElem.addEventListener("click", onRecipeClick);
+            
+            if (categories[recipe.category]) {
+                const iconElem = document.createElement("i");
+                iconElem.classList.add("col-1", "fas", categories[recipe.category].icon);
+                aElem.appendChild(iconElem);
+            }
+            const nameElem = document.createElement("span");
+            // nameElem.classList.add("col-8");
+            nameElem.innerHTML=recipe.name;
+            aElem.appendChild(nameElem);
+
             recipeList.appendChild(aElem);
         });
     };
 
-    db.collection("recipes").get().then(recipePopulator); 
+    const orderSelector = document.getElementById("order-selector");
+    orderSelector.addEventListener("change", (event) => {
+        db.collection("recipes").orderBy(event.srcElement.value).get().then(recipePopulator);
+    })
+
+    db.collection("recipes").orderBy("category").get().then(recipePopulator); 
 });
