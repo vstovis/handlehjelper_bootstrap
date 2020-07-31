@@ -1,68 +1,66 @@
 <!doctype html>
 <html>
-  <head>
-    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Getting Started</title>
-  </head>
-  <body>
-    <div class="jumbotron">
-        <h1 class="display-4">Handlehjelperen</h1>
-        <p class="lead">For deg som ikke fungerer mentalt i butikken</p>
-    </div>
-    <div class="container">
-      <!-- <form>
-        <div class="form-group">
-          <label for="inputRecipeName">Fyll inn tittelen til oppskriften</label>
-          <input type="text" class="form-control" id="inputRecipeName" placeholder="Eks. vegetarlasagne">
-        </div>
-        <div class="form-group">
-          <label for=inputRecipeCategory">Hva slags rett er dette?</label>
-          <select class="form control">
-            <option>Velg type</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="inputRecipeIngredients">List opp alle ingrediensene</label>
-          <input type="text" class="form-control" id="inputRecipeIngredients" placeholder="Eks. 100 g lasagneplater per pers">
-        </div>
-        <div class="form-group">
-          <label for="inputRecipeSource">Hvor finnes oppskriften?</label>
-          <input type="text" class="form-control" id="inputRecipeSource" placeholder="Eks. side 128 i familiekokeboken">
-        </div> -->
-        <div class="row form-group">
-          <div class="col-3">
-            <label for="input-search">Søk etter oppskrift (kommer)</label>
-            <input type="text" class="form-control" id="input-search" placeholder="Søk her">
-          </div>
-          <div class="col-4">
-            <label for="order-selector">Sortering</label>
-            <select class="form control" id="order-selector"> 
-              <option></option>
-              <option value="name">Tittel</option>
-              <option value="category">Kategori</option>
-              <option value="source">Kilde</option>
-            </select>
-          </div>
-        </div>
-    </div>
-    </form>
-    <div class="container">
-      <div class="row">
-        <div class="col list-group" id="recipe-list">
-      </div>
-      <div id="recipe-panel" class="col card">
-        <div id="recipe-panel-body" class="card-body">
-          <h3 id="recipe-panel-title" class="card-title">Klikk på en oppskrift</h3>
-          <p id="body-category" class="card-text">Detaljene vil vises her</p>
-          <p id="body-ingredients" class="card-text"></p>
-          <p id="body-source" class="card-text"></p>
-        </div>
-        <div class="row>"
-        </div>
+   <head>
+      <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+      <link rel="stylesheet" href="bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <title>Getting Started</title>
+   </head>
+   <body>
+      <div class="jumbotron">
+         <h1 class="display-4">Handlehjelperen</h1>
+         <p class="lead">For deg som ikke fungerer mentalt i butikken</p>
       </div>
       <div class="container">
-    </div>
-    <script src="index.js"></script>
-  </body>
+            <div class="form-group">
+               <label for="input-recipe-name">Fyll inn tittelen til oppskriften</label>
+               <input type="text" class="form-control" id="input-recipe-name" placeholder="Eks. vegetarlasagne">
+            </div>
+            <div class="form-group">
+               <label for="input-recipe-category">Hva slags rett er dette?</label>
+               <select id="input-recipe-category" class="form-control">
+               </select>
+            </div>
+            <div class="form-group">
+               <label for="input-recipe-ingredients">List opp alle ingrediensene</label>
+               <textarea class="form-control" id="input-recipe-ingredients" rows="8" placeholder="Eks. 100 g lasagneplater per pers"></textarea>
+            </div>
+            <div class="form-group">
+               <label for="input-recipe-source">Hvor finnes oppskriften?</label>
+               <input type="text" class="form-control" id="input-recipe-source" placeholder="Eks. side 128 i familiekokeboken">
+            </div>
+            <button class="btn btn-primary" id="button-submit">Legg til</button>
+         <div class="row form-group">
+          <div class="col-3">
+             <label for="input-search">Søk etter oppskrift (kommer)</label>
+             <input type="text" class="form-control" id="input-search" placeholder="søkeord">
+          </div>
+          <div class="col-4">
+             <label for="order-selector">Sorter etter</label>
+             <select class="form control" id="order-selector">
+                <option></option>
+                <option value="name">tittel</option>
+                <option value="category">kategori</option>
+                <option value="source">kilde</option>
+             </select>
+          </div>
+       </div>
+      </div>
+      <div class="container">
+      <div class="row">
+      <div class="col list-group" id="recipe-list">
+      </div>
+      <div id="recipe-panel" class="col card">
+         <div id="recipe-panel-body" class="card-body">
+            <h5 id="recipe-panel-title" class="card-title">Klikk på en oppskrift</h5>
+            <h6 id="body-category" class="card-subtitle mb2 text-muted">Detaljene vil vises her</h6>
+            </br>
+            <ul id="body-ingredients" class="list-group list-group-flush"></ul>
+            </br>
+            <i id="body-source" class="card-text"></i>
+         </div>
+      </div>
+      <div class="container">
+      </div>
+      <script src="index.js"></script>
+   </body>
 </html>
