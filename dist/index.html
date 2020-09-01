@@ -2,7 +2,7 @@
 <html>
    <head>
       <link rel="stylesheet" href="/fontawesome/css/all.min.css">
-      <link rel="stylesheet" href="bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link rel="stylesheet" href="bootstrap.min.css">
       <title>Getting Started</title>
    </head>
    <body>
@@ -27,6 +27,10 @@
             <div class="form-group">
                <label for="input-recipe-source">Hvor finnes oppskriften?</label>
                <input type="text" class="form-control" id="input-recipe-source" placeholder="Eks. side 128 i familiekokeboken">
+            </div>
+            <div class="form-group">
+               <label for="input-recipe-instructions">Skriv fremgangsmåte</label>
+               <textarea class="form-control" id="input-recipe-instructions" placeholder="Eks. varm ovnen på 200 grader"></textarea>
             </div>
             <button class="btn btn-primary" id="button-submit">Legg til</button>
          <div class="row form-group">
@@ -56,7 +60,8 @@
             </br>
             <ul id="body-ingredients" class="list-group list-group-flush"></ul>
             </br>
-            <i id="body-source" class="card-text"></i>
+            <p id="body-source" class="card-text"></p>
+            <p id="body-instructions" class="card-text"></p>
          </div>
       </div>
       <div class="container">

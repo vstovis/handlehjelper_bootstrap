@@ -10,9 +10,12 @@ const title = document.getElementById("recipe-panel-title");
 const category = document.getElementById("body-category");
 const ingredients = document.getElementById("body-ingredients");
 const source = document.getElementById("body-source");
+const instructions = document.getElementById("body-instructions");
+
 const inputName = document.getElementById("input-recipe-name");
 const inputSource = document.getElementById("input-recipe-source");
-const inputIngredients = document.getElementById("input-recipe-ingredients")
+const inputIngredients = document.getElementById("input-recipe-ingredients");
+const inputInstructions = document.getElementById("input-recipe-instructions");
 const categorySelector = document.getElementById("input-recipe-category");
 const orderSelector = document.getElementById("order-selector");
 const buttonSubmit = document.getElementById("button-submit");
@@ -79,7 +82,8 @@ function onClickSubmit() {
         category: categorySelector.value,
         ingredients: inputIngredients.value.split(/\n/),
         name: inputName.value,
-        source: inputSource.value
+        source: inputSource.value,
+        instructions: inputInstructions.value
     })
     .then((docRef) => {
         console.log("Oppskrift lagt til med følgende id:" + docRef.id);
@@ -115,7 +119,8 @@ function recipePopulator(recipes) {
                 liElem.classList.add("list-group-item");
                 ingredients.appendChild(liElem);
             }
-            source.innerText = `Kilde: ${recipe.source}`                
+            source.innerText = `Kilde: ${recipe.source}`
+            instructions.innerText = `Fremgangsmåte: ${recipe.instructions}`
         }
 
         const aElem = document.createElement("a");
