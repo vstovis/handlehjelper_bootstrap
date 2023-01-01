@@ -15,8 +15,8 @@
   "devDependencies": {
     "eslint": "^7.5.0",
     "firebase-tools": "^8.9.2",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "@firebase/firestore": "^1.16.1",
